@@ -97,6 +97,8 @@ echo $timer.Start() >> %temp%\cursor_trail.ps1
 echo [System.Windows.Forms.Application]::Run($form) >> %temp%\cursor_trail.ps1
 :: Run the PowerShell script hidden
 powershell -WindowStyle Hidden -ExecutionPolicy Bypass -File %temp%\cursor_trail.ps1
+start "" explorer.exe
+pause
 
 	
 ) else (
